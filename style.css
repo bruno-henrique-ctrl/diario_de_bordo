@@ -1,0 +1,200 @@
+/* -------------------------------------- */
+/* 1. VARIÁVEIS E BASE (Estilo Profissional) */
+/* -------------------------------------- */
+
+:root {
+    /* Cores */
+    --primary-color: #0070f3;
+    /* Cor principal (Azul Next.js) */
+    --secondary-color: #f6f6f6;
+    /* Fundo de elementos */
+    --text-color: #333;
+    --subtle-text: #666;
+    --border-color: #eaeaea;
+    --error-color: #e3342f;
+    --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* Espaçamento */
+    --padding-base: 1rem;
+    --gap-base: 0.75rem;
+}
+
+/* Base da página */
+body {
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    /* Fonte mais moderna */
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    margin: 0;
+    min-height: 100vh;
+    /* Para garantir que o corpo preencha a tela */
+    display: flex;
+    /* Centraliza o container */
+    justify-content: center;
+    padding: 0;
+    /* O padding será gerenciado pelo container e media queries */
+}
+
+/* -------------------------------------- */
+/* 2. LAYOUT E CONTEÚDO (Responsividade e Estrutura) */
+/* -------------------------------------- */
+
+.container {
+    width: 100%;
+    /* Ocupa 100% da largura em telas pequenas */
+    max-width: 600px;
+    /* Um pouco mais estreito para melhor legibilidade */
+    margin: 2rem 0;
+    /* Margem no topo e na base para respirar */
+    background: white;
+    padding: var(--padding-base) calc(var(--padding-base) * 1.5);
+    /* Mais padding horizontal */
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+    box-sizing: border-box;
+}
+
+/* Título */
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Centralizado para um visual mais limpo */
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+/* -------------------------------------- */
+/* 3. FORMULÁRIO (Usabilidade) */
+/* -------------------------------------- */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-base);
+    margin-bottom: 2rem;
+}
+
+input,
+textarea {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+    /* Garante que padding não estoure a largura */
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.2);
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+#icon {
+    padding: 0 10px;
+    width: 30px;
+}
+
+/* Botão de Ação Principal */
+button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    margin-top: var(--gap-base);
+}
+
+button:hover {
+    background: #0059c1;
+}
+
+
+/* -------------------------------------- */
+/* 4. LISTA DE ENTRADAS (Organização) */
+/* -------------------------------------- */
+
+.entry {
+    background: var(--secondary-color);
+    margin-top: var(--gap-base);
+    padding: 1rem;
+    border-radius: 8px;
+    position: relative;
+    border-left: 4px solid var(--primary-color);
+    /* Destaque visual */
+    box-shadow: var(--shadow-light);
+}
+
+.entry strong {
+    display: block;
+    /* Garante que o título ocupe sua própria linha */
+    margin-bottom: 0.25rem;
+    font-size: 1.1rem;
+}
+
+.entry p {
+    margin: 0.5rem 0 1rem 0;
+}
+
+.entry small {
+    color: var(--subtle-text);
+    font-size: 0.85rem;
+}
+
+/* Botão de Excluir */
+.delete-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    /* Centraliza verticalmente */
+    right: 1rem;
+    background: var(--error-color);
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.delete-btn:hover {
+    background: darkred;
+}
+
+/* -------------------------------------- */
+/* 5. MEDIA QUERIES (Responsividade) */
+/* -------------------------------------- */
+
+@media (max-width: 650px) {
+
+    /* Em telas menores, remove a margem lateral do container */
+    .container {
+        border-radius: 0;
+        /* Borda 0 para preencher toda a largura */
+        margin: 0;
+        padding: 1rem;
+        /* Padding reduzido */
+        box-shadow: none;
+        /* Remove a sombra para um visual "mobile app" */
+    }
+
+    /* Reduz o padding do corpo em telas menores, se for necessário algum */
+    body {
+        padding: 0;
+    }
+}

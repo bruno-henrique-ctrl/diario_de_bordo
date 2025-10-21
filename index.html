@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diário de Bordo</title>
+    <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <main class="container">
+
+        <header>
+            <h1><img src="/icons/icon192.png" alt="icon" id="icon"> Diário de Bordo</h1>
+            <button type="button" id="install-btn" class="install-button" aria-label="Instalar aplicativo PWA">Instalar
+                App</button>
+        </header>
+
+        <section id="new-entry">
+            <h2>Adicionar Nova Entrada</h2>
+            <form id="entry-form">
+                <label for="title" class="sr-only">Título da Entrada</label>
+                <input type="text" id="title" placeholder="Título" required>
+
+                <label for="description" class="sr-only">Descrição da Entrada</label>
+                <textarea id="description" placeholder="Descrição"></textarea>
+
+                <label for="date">Data da Entrada</label>
+                <input type="date" id="date" required>
+
+                <button type="submit">Salvar Entrada</button>
+            </form>
+        </section>
+
+        <section id="entry-list">
+            <h2>Entradas Anteriores</h2>
+
+            <div id="entries-container">
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+    <script src="sw.js"></script>
+</body>
+
+</html>
