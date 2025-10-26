@@ -10,8 +10,8 @@ const installButton = document.getElementById('install-btn');
 
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js')
-        .then(() => console.log('Service Worker registrado com sucesso'))
-        .catch((err) => console.log('Falha ao registrar o Service Worker:', err));
+        .then(() => console.log('SW registrado'))
+        .catch(err => console.error('Falha ao registrar SW:', err));
 }
 
 const renderEntries = () => {
@@ -30,7 +30,9 @@ const renderEntries = () => {
                     <strong>${entry.title}</strong> <br>
                     <small>${entry.date}</small>
                     <p>${entry.description}</p>
+                    <div>
                     <button class="delete-btn" data-index="${index}">Excluir</button>
+                    </div>
                 `;
 
         const deleteBtn = entryDiv.querySelector('.delete-btn');
